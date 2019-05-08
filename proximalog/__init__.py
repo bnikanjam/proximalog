@@ -32,4 +32,9 @@ def create_app(test_config=None):
     def running():
         return f'Hi! I am in {__name__} up and running...'
 
+    from . import db
+    db.init_app(app)
+
+
+
     return app
