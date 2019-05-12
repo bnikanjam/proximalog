@@ -39,4 +39,10 @@ def create_app(test_config=None):
     from . import auth
     app.register_blueprint(auth.bp)
 
+    # register log blueprint that has views to list all logs,
+    # allow logged in users to create logs, and allow the author of a log to edit or delete it.
+    from . import logs
+    app.register_blueprint(logs.bp)
+    app.add_url_rule('/', endpoint='index')
+
     return app

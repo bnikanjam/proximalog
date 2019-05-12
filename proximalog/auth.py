@@ -64,7 +64,7 @@ def login():
             session['user_id'] = user['id']
             return redirect(url_for('index'))
 
-    flash(error)
+        flash(error)
 
     return render_template('auth/login.html')
 
@@ -96,4 +96,4 @@ def login_required(view):
 
         return view(**kwargs)
 
-    return wrapped_view()
+    return wrapped_view
