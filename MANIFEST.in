@@ -1,0 +1,4 @@
+include proximalog/schema.sql
+graft proximalog/static
+graft proximalog/templates
+global-exclude *.pyc
