@@ -14,7 +14,9 @@ Update pip and install flask
 * pip install -U pip
 * pip install flask
 
+Initialized the database
+* flask init-db
+
 Tell Flask where to find the application and running it in development mode.
 * export FLASK_APP=proximalog
 * export FLASK_ENV=development
-

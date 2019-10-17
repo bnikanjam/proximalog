@@ -1,2 +1,0 @@
-FLASK_APP=proximalog
-FLASK_ENV=development

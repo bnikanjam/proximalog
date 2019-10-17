@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask
+from flask import Flask, jsonify
 
 
 # The Application Factory
@@ -10,7 +10,7 @@ def create_app(test_config=None):
     # implemented inside this function, then the application will be returned.
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
-        SECRET_KEY='dev',
+        SECRET_KEY=os.environ.get('SECRET_KEY'),
         DATABASE=os.path.join(app.instance_path, 'proximalog.sqlite'),
     )
 
@@ -30,7 +30,7 @@ def create_app(test_config=None):
     # quick test app running
     @app.route('/running')
     def running():
-        return f'Hi! I am in {__name__} up and running...'
+        return jsonify({'message': f'Hi! I am `{__name__}` up and running...'})
 
     from . import db
     db.init_app(app)
